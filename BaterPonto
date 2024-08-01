@@ -1,0 +1,16 @@
+print("Bem vindo ao BatePonto. Aqui fazemos seu calculo automatico para gerir seu tempo!")
+bp = 8
+c = int(input("Diga a quantidade de horas que você trabalhou: "))
+print("Dependendo da quantidade de horas, você poderá tirar folga ou terá que fazer hora extra!")
+
+if c > bp:
+    print("Você tem a opção de deixar guardado essa quantia de hora para usar nos próximos meses, gostaria ?")
+    resposta = str(input(""))
+    if resposta == "Sim":
+        print("Ótimo, a quantidade {} horas vai ficar para o próximo trimestre! Obrigado!".format(c-bp))
+    else: 
+        print("Tudo bem, então você tem direito a tirar {} horas de folga! Obrigado!".format(c-bp))
+elif c == bp:
+    print("Você bateu a quantidade de horas corretas, parabéns!")
+else:
+    print("Você não bateu a quantidade de hora necessária, vai fazer hora extra!")
