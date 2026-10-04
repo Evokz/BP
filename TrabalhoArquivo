@@ -1,0 +1,102 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "mount_file_id": "1PcfJjkG3nt5AOscHBEnIjkr_5C01_2oi",
+      "authorship_tag": "ABX9TyP+9RWtBwll1FXGiysTxTey",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Evokz/BP/blob/main/TrabalhoArquivo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 7,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wrwCCNken65N",
+        "outputId": "b1a6f245-2543-47f0-9bb0-e63010313a9b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Comissão por vendedor\n",
+            "-----------------------------------\n",
+            "João Silva              R$ 495,68\n",
+            "Maria Souza             R$ 465,95\n",
+            "Carlos Oliveira         R$ 379,37\n",
+            "Ana Lima                R$ 404,98\n"
+          ]
+        }
+      ],
+      "source": [
+        "import json\n",
+        "\n",
+        "\n",
+        "def calcular_comissao(valor):\n",
+        "    if valor < 100:\n",
+        "        return 0\n",
+        "    if valor < 500:\n",
+        "        return valor * 0.01\n",
+        "    return valor * 0.05\n",
+        "\n",
+        "\n",
+        "def formatar_real(valor):\n",
+        "    texto = f\"{valor:,.2f}\"\n",
+        "    texto = texto.replace(\",\", \"X\").replace(\".\", \",\").replace(\"X\", \".\")\n",
+        "    return \"R$ \" + texto\n",
+        "\n",
+        "\n",
+        "def main():\n",
+        "    with open(\"/vendas.json\", encoding=\"utf-8\") as arquivo:\n",
+        "        dados = json.load(arquivo)\n",
+        "\n",
+        "    comissoes = {}\n",
+        "    for venda in dados[\"vendas\"]:\n",
+        "        nome = venda[\"vendedor\"]\n",
+        "        comissao = calcular_comissao(venda[\"valor\"])\n",
+        "        comissoes[nome] = comissoes.get(nome, 0) + comissao\n",
+        "\n",
+        "    print(\"Comissão por vendedor\")\n",
+        "    print(\"-\" * 35)\n",
+        "    for nome, total in comissoes.items():\n",
+        "        print(f\"{nome:<18} {formatar_real(total):>14}\")\n",
+        "\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Nova seção"
+      ],
+      "metadata": {
+        "id": "cjGnjRfLgbzL"
+      }
+    }
+  ]
+}
