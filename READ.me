@@ -1,20 +1,20 @@
 Teste Técnico
 
-Aqui estão minhas soluções para o desafio técnico. São três programas independentes, todos feitos em Python e testados no Google Colab. Cada projeto tem seu próprio notebook, então é só abrir pelo botão **"Open in Colab"** e executar as células.
+Aqui estão minhas soluções para o desafio técnico. São três projetos independentes, todos feitos em Python e testados no Google Colab. Cada projeto tem seu próprio notebook, então é só abrir pelo botão **"Open in Colab"** e executar as células.
 
 
 | Arquivo | Descrição |
-| `projeto1_comissao.ipynb` | Cálculo de comissão por vendedor |
-| `projeto2_estoque.ipynb` | Controle de entradas e saídas de estoque |
-| `projeto3_juros.ipynb` | Cálculo de juros por atraso |
+| `TrabalhoComissao.ipynb` | Cálculo de comissão por vendedor |
+| `Teste_Estoque.ipynb` | Controle de entradas e saídas de estoque |
+| `juros.ipynb` | Cálculo de juros por atraso |
 | `vendas.json` | Dados utilizados no projeto 1 |
 | `estoque.json` | Produtos e quantidades iniciais do projeto 2 |
 
-## Projeto 1: comissão dos vendedores
+Projeto 1: comissão dos vendedores
 
 Nesse projeto, o programa lê os dados do `vendas.json`, calcula a comissão de cada venda e depois soma os valores por vendedor.
 
-As regras utilizadas foram:
+As ideias que tive ao longo do tmempo pra pensar em por nesses projetos foi:
 
 - Abaixo de R$ 100,00: sem comissão
 - De R$ 100,00 até abaixo de R$ 500,00: 1%
@@ -57,7 +57,7 @@ Nesse projeto, o programa solicita o valor da conta e a data de vencimento no fo
 
 Caso a conta ainda não esteja vencida, o programa informa que não há juros.
 
-Para o cálculo, interpretei a "multa de 2,5% ao dia" como juros simples:
+Para o cálculo, eu usei a minha interpretação de  "multa de 2,5% ao dia" como juros simples:
 
 
 juros = valor × 2,5% × dias de atraso
