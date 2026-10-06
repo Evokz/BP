@@ -1,0 +1,76 @@
+Teste Técnico
+
+Aqui estão minhas soluções para o desafio técnico. São três programas independentes, todos feitos em Python e testados no Google Colab. Cada projeto tem seu próprio notebook, então é só abrir pelo botão **"Open in Colab"** e executar as células.
+
+
+| Arquivo | Descrição |
+| `projeto1_comissao.ipynb` | Cálculo de comissão por vendedor |
+| `projeto2_estoque.ipynb` | Controle de entradas e saídas de estoque |
+| `projeto3_juros.ipynb` | Cálculo de juros por atraso |
+| `vendas.json` | Dados utilizados no projeto 1 |
+| `estoque.json` | Produtos e quantidades iniciais do projeto 2 |
+
+## Projeto 1: comissão dos vendedores
+
+Nesse projeto, o programa lê os dados do `vendas.json`, calcula a comissão de cada venda e depois soma os valores por vendedor.
+
+As regras utilizadas foram:
+
+- Abaixo de R$ 100,00: sem comissão
+- De R$ 100,00 até abaixo de R$ 500,00: 1%
+- A partir de R$ 500,00: 5%
+
+Considerei que uma venda de exatamente R$ 500,00 entra na faixa de 5%, seguindo o "a partir de" do enunciado.
+
+Com os dados fornecidos no desafio, o resultado foi:
+
+``
+João Silva              R$ 495,68
+Maria Souza             R$ 465,95
+Carlos Oliveira         R$ 379,37
+Ana Lima                R$ 404,98
+``
+
+Projeto 2: controle de estoque
+
+Aqui fiz um menu simples pelo terminal para registrar entradas e saídas dos produtos cadastrados no `estoque.json`.
+
+As opções disponíveis são:
+
+- Entrada
+- Saída
+- Ver estoque
+- Histórico
+- Sair
+
+Cada movimentação registra um número identificador, a descrição informada pelo usuário, data e hora, quantidade movimentada e o saldo do produto após o lançamento.
+
+Também coloquei algumas validações, como não permitir uma saída maior que o estoque disponível e não aceitar quantidades zero ou negativas.
+
+As movimentações ficam salvas no `movimentacoes.json` e o estoque atualizado no `estoque.json`. O histórico também é usado para manter a sequência dos identificadores mesmo depois de fechar e abrir o programa novamente.
+
+Como os testes foram feitos no Google Colab, esses arquivos ficam apenas na sessão atual e podem ser perdidos quando o ambiente for reiniciado.
+
+## Projeto 3: juros por atraso
+
+Nesse projeto, o programa solicita o valor da conta e a data de vencimento no formato `dd/mm/aaaa`. Depois compara a data informada com a data atual e calcula os dias de atraso, os juros e o valor total.
+
+Caso a conta ainda não esteja vencida, o programa informa que não há juros.
+
+Para o cálculo, interpretei a "multa de 2,5% ao dia" como juros simples:
+
+
+juros = valor × 2,5% × dias de atraso
+
+Por exemplo, uma conta de R$ 1.500,00 com 4 dias de atraso teria R$ 150,00 de juros, totalizando R$ 1.650,00.
+
+Se a regra esperada for juros compostos, o cálculo pode ser alterado facilmente.
+
+## Como rodar
+
+1. Abra o notebook do projeto que quiser testar e clique em **"Open in Colab"**.
+2. Nos projetos 1 e 2, os dados em JSON são carregados diretamente do repositório, então não é necessário fazer upload manualmente.
+3. Execute as células na ordem.
+4. Nos projetos 2 e 3, o programa vai pedir algumas informações pelo teclado durante a execução.
+
+Essas foram as decisões que tomei para implementar cada parte do desafio. Caso tenha alguma dúvida sobre a lógica ou sobre alguma escolha do código, fico à disposição.
